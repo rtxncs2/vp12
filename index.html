@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+
+  <!-- Include Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-js {
+      width: 100%;
+    }
+
+    .page-title {
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .video-description {
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #cccccc;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      word-wrap: break-word;
+    }
+
+    .download-button {
+      display: block;
+      margin: 10px auto 0;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      text-align: center;
+      transition: background-color 0.3s;
+      width: fit-content;
+    }
+
+    .download-button:hover {
+      background-color: #333333;
+    }
+
+    .video-js .vjs-big-play-button {
+      background-color: rgba(43, 51, 63, 0.7);
+      border-color: #fff;
+    }
+
+    .video-js .vjs-control-bar {
+      background-color: rgba(43, 51, 63, 0.9);
+    }
+
+    .video-js .vjs-slider {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .video-js .vjs-play-progress {
+      background-color: #00ff00;
+    }
+
+    @media screen and (max-width: 768px) {
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      .page-title {
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 0;
+      }
+
+      .video-container {
+        padding: 0 10px;
+      }
+
+      .video-description {
+        font-size: 18px;
+        padding: 0 10px;
+      }
+
+      .download-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <h1 class="page-title"></h1>
+
+    <div class="video-container">
+      <!-- Video.js Player -->
+      <video
+        id="my-video"
+        class="video-js vjs-default-skin vjs-big-play-button vjs-16-9"
+        controls
+        preload="auto"
+        poster="image.jpg"
+        data-setup="{}"
+      >
+        <source src="video2.mp4" type="video/mp4" />
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web
+          browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank">
+            supports HTML5 video
+          </a>
+        </p>
+      </video>
+
+      <!-- Video description -->
+      <div class="video-description">
+        <center><b>Татьяна Куртукова - Матушка (Официальный клип) Премьера 2024</b></center>
+      </div>
+
+      <!-- Download button -->
+      <a href="video2.mp4" download class="download-button">Download</a>
+    </div>
+  </div>
+
+  <!-- Include Video.js JavaScript -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script>
+    var player = videojs('my-video', {
+      responsive: true,
+      fluid: true
+    });
+
+    player.addClass('vjs-dark-theme');
+  </script>
+</body>
+</html>
